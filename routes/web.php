@@ -26,25 +26,36 @@ Route::get('/', function () {
     // $post->title = 'test title';
     // $post->content = 'test content';
     // $post->save();
+
     // Post::create([
     //     'title' => 'created title',
     //     'content' => 'created content',
     // ]);
+
     // $posts = Post::all();
     // dd($posts);
+
     // $post = Post::find(1);
     // dd($post);
+
     // $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
     // dd($posts);
 
     // return 'Saved, OK!';
-    $post = Post::find(1);
-    $post->update([
-        'title' => 'updated title',
-        'content' => 'updated content',
-    ]);
-    return 'Updated, OK!';
 
+    // $post = Post::find(1);
+    // $post->update([
+    //     'title' => 'updated title',
+    //     'content' => 'updated content',
+    // ]);
+    // return 'Updated, OK!';
+
+    $post = Post::find(1);
+    $post->title = 'saved title';
+    $post->content = 'saved content';
+    $post->save();
+    return 'Saved, OK!';
+    
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
