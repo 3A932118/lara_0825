@@ -34,10 +34,16 @@ Route::get('/', function () {
     // dd($posts);
     // $post = Post::find(1);
     // dd($post);
-    $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
-    dd($posts);
+    // $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
+    // dd($posts);
 
-    return 'Saved, OK!';
+    // return 'Saved, OK!';
+    $post = Post::find(1);
+    $post->update([
+        'title' => 'updated title',
+        'content' => 'updated content',
+    ]);
+    return 'Updated, OK!';
 
 });
 
