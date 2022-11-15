@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
+use App\Models\Comment;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,16 +79,24 @@ Route::get('/', function () {
     // $lastPost = Post::orderBy('id', 'DESC')->first();
     // dd($lastPost);
 
-    $post = Post::find(4);
-    echo '標題: '.$post->title.'<br>';
-    echo '內容: '.$post->content.'<br>';
-    echo '--------------------------'.'<br>';
-    // $comments = $post->comments()->get(); //$post->comments()->get()可簡寫$post->comments
-    $comments = $post->comments;
-    foreach ($comments as $comment){
-    echo '留言: '.$comment->content."<br>";
-    echo '-----------------------------'.'<br>';
-    }
+    // $post = Post::find(4);
+    // echo '標題: '.$post->title.'<br>';
+    // echo '內容: '.$post->content.'<br>';
+    // echo '--------------------------'.'<br>';
+    // // $comments = $post->comments()->get(); //$post->comments()->get()可簡寫$post->comments
+    // $comments = $post->comments;
+    // foreach ($comments as $comment){
+    //     echo '留言: '.$comment->content."<br>";
+    //     echo '-----------------------------'.'<br>';
+    // }
+    
+    $comment = Comment::find(2);
+    echo $comment->content.'<br>';
+    echo '******************'.'<br>';
+    $post = $comment->post()->first();
+    echo $post->id.'<br>';
+    echo $post->title.'<br>';
+    echo $post->content.'<br>';
 
 });
 
