@@ -61,8 +61,21 @@ Route::get('/', function () {
 
     // Post::destroy(2);
 
-    Post::destroy(3, 5, 7);
-    return 'Deleted!';
+    // Post::destroy(3, 5, 7);
+    // return 'Deleted!';
+
+    // $allPosts = Post::all();
+    // dd($allPosts);
+
+    // $featuredPosts = Post::where('is_feature', 1)->get(); //多筆貼文的集合
+    // dd($featuredPosts);
+
+    //單一筆
+    // $fourthPost = Post::find(4);
+    // dd($fourthPost);
+
+    $lastPost = Post::orderBy('id', 'DESC')->first();
+    dd($lastPost);
 
 });
 
