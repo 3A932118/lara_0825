@@ -26,10 +26,17 @@ Route::get('/', function () {
     // $post->title = 'test title';
     // $post->content = 'test content';
     // $post->save();
-    Post::create([
-        'title' => 'created title',
-        'content' => 'created content',
-    ]);
+    // Post::create([
+    //     'title' => 'created title',
+    //     'content' => 'created content',
+    // ]);
+    // $posts = Post::all();
+    // dd($posts);
+    // $post = Post::find(1);
+    // dd($post);
+    $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
+    dd($posts);
+
     return 'Saved, OK!';
 
 });
