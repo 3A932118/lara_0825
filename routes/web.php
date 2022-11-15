@@ -50,12 +50,20 @@ Route::get('/', function () {
     // ]);
     // return 'Updated, OK!';
 
-    $post = Post::find(1);
-    $post->title = 'saved title';
-    $post->content = 'saved content';
-    $post->save();
-    return 'Saved, OK!';
-    
+    // $post = Post::find(1);
+    // $post->title = 'saved title';
+    // $post->content = 'saved content';
+    // $post->save();
+    // return 'Saved, OK!';
+
+    // $post = Post::find(1);
+    // $post->delete();
+
+    // Post::destroy(2);
+
+    Post::destroy(3, 5, 7);
+    return 'Deleted!';
+
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
